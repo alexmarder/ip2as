@@ -7,7 +7,7 @@ After installing traceutils, the next step is to create the prefix to AS mapping
 2. extract origins from RIR extended delegation files, and
 3. create prefix to AS mappings.
 
-The source code resides at [https://github.com/alexmarder/ip2as/tree/gh-pages](https://github.com/alexmarder/ip2as/tree/gh-pages).
+The source code resides at [https://github.com/alexmarder/ip2as/](https://github.com/alexmarder/ip2as/).
 
 Argument | Required | Description
 :--- | :--- | :---
