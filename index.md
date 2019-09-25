@@ -11,7 +11,7 @@ The source code resides at [https://github.com/alexmarder/ip2as/](https://github
 
 # Extracting Origin ASes from RIBs
 The easiest way to do this is to download a [Routeviews prefix2as file from CAIDA](http://data.caida.org/datasets/routing/).
-If you do this, there is no need to extract origin ASes from RIB files.
+If you do this, there is no need to extract origin ASes from RIB files, and you can skip this step.
 
 Otherwise, first download RIB files from Routeviews or RIPE RIS, then run the prefixes.py script.
 The file prefixes.py processes RIBs in parallel. It is run with the following arguments. First create a file with all of the filenames to use, then pass that file to prefixes.py.
