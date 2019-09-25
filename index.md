@@ -50,7 +50,7 @@ The final step in creating the prefix to AS mappings is to run the ip2as.py scri
 Argument | Required | Description
 :--- | :--- | :---
 -p, --prefixes | Required | RIB prefix to AS file.
--P, --peeringdb | Required | PeeringDB json file.
+-P, --peeringdb | Required | [PeeringDB json file](http://data.caida.org/datasets/peeringdb-v2/).
 -r, –-rir | Optional, Recommended | RIR prefix to AS file.
 -R, –-rels | Required | AS relationships file retrieved from CAIDA.
 -c, –-cone | Required | AS customer cone file retrieved from CAIDA.
