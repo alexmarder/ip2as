@@ -55,7 +55,10 @@ Argument | Required | Description
 -R, –-rels | Required | AS relationships file retrieved from CAIDA.
 -c, –-cone | Required | AS customer cone file retrieved from CAIDA.
 -o, –-output | Optional | Output file. Defaults to stdout.
--a, –-as2org | Required | AS-to-organization mappings retrieved from CAIDA.
+-a, –-as2org | Required | [AS-to-organization mappings](http://data.caida.org/datasets/as-organizations/) retrieved from CAIDA.
+
+[AS relationships and customer cones can be downloaded here](http://data.caida.org/datasets/as-relationships/serial-1/).
+The relationships file are named as-rel.txt.bz2 and the customer cone files are named ppdc-ases.txt.bz2.
 
 Run the script to produce the prefix to AS mappings
 ```bash
