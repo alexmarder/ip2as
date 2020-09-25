@@ -2,12 +2,27 @@
 title: ip2as Documentation
 ---
 
-After installing traceutils, the next step is to create the prefix to AS mappings. This process has 3 steps,
+# Prerequisits
+The only prerequisite is the [traceutils](https://github.com/alexmarder/traceutils/) package
+
+# Installation
+The package can be installed by pip (`pip install -U ip2as`) or from source.
+
+To install from source, clone the repository, and from inside the repository run
+```bash
+python setup.py sdist bdist_wheel
+pip install -e .
+```
+
+Both installations will produce the two scripts <tt>ip2as</tt> and <tt>rir2as</tt>.
+Inside the python environement, both scripts can be run from the command line.
+
+# Running
+After installing, the next step is to create the prefix to AS mappings.
+This process has 3 steps,
 1. download prefix2as file or extract origins from RIBs,
 2. (optional, but recommended) extract origins from RIR extended delegation files, and
 3. create prefix to AS mappings.
-
-The source code resides at [https://github.com/alexmarder/ip2as/](https://github.com/alexmarder/ip2as/).
 
 # Extracting Origin ASes from RIBs
 The easiest way to do this is to download a [Routeviews prefix2as file from CAIDA](http://data.caida.org/datasets/routing/).
@@ -30,7 +45,7 @@ This creates a prefix to AS file in the CAIDA prefix2as format.
 # Extract Origin ASes from RIR
 This step is not required, but RIR extended delegation files can fill in prefixes that are missing from the BGP route announements used to create the prefix2as file.
 First, download an RIR extended delegation file, one from each of the five RIRs.
-The file rir_delegations.py processes RIR extended delegation files, with the arguments,
+The <tt>rir2as</tt> script processes RIR extended delegation files, with the arguments,
 
 Argument | Required | Description
 :--- | :--- | :---
@@ -41,11 +56,11 @@ Argument | Required | Description
 
 After creating the file with the list of RIR filenames, run
 ```bash
-./rir_delegations.py -f rir.files -r rels-file -c cone-file -o rir.prefixes
+rir2as -f rir.files -r rels-file -c cone-file -o rir.prefixes
 ```
 
 # Prefix to AS
-The final step in creating the prefix to AS mappings is to run the ip2as.py script.
+The final step in creating the prefix to AS mappings is to run the <tt>ip2as</tt> script.
 
 Argument | Required | Description
 :--- | :--- | :---
@@ -62,5 +77,5 @@ The relationships file are named as-rel.txt.bz2 and the customer cone files are 
 
 Run the script to produce the prefix to AS mappings
 ```bash
-./ip2as.py -p rib.prefixes, -r rir.prefixes -R rels-file -c cone-file \ -a as2org -file -P peeringdb.json -o ip2as.prefixes
+ip2as -p rib.prefixes, -r rir.prefixes -R rels-file -c cone-file \ -a as2org -file -P peeringdb.json -o ip2as.prefixes
 ```
